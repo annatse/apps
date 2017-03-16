@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -q production
+#PBS -N annasjob
+#PBS -l select=8:ncpus=1
+#PBS -l place=free
+#PBS -V
+
+# Change to working directory
+cd $PBS_O_WORKDIR
+
+# Run my MPI job
+mpiexec -np 5 python -m scrub data-small.txt
